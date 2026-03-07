@@ -160,7 +160,7 @@ class Alumno : Persona {
 
 /**
  * Registro personas
- * La normalización evita duplicados o fallos en la búsqueda
+ * La normalización evita duplicados o fallos en la búsqueda de nombres
  */
 class RegistroPersonas {
     private val personasPorNombre = mutableMapOf<String, Persona>()
