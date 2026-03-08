@@ -18,4 +18,22 @@ fun main() {
     println("- Punto de partida: ejecuta `es.ies.ejercicios.u6.ej62.v0.main` (DemoV0)")
     println("- Implementa la versión final en `es.ies.ejercicios.u6.ej62` (este paquete)")
     println("- Después, actualiza este main para demostrar el funcionamiento con logs")
+
+    val logger = StdoutLogger()
+    val nombre = "Informe"
+    val listaLineas = listOf("Primera línea", "Segunda línea", "Tercera línea")
+
+    println("=== EJ 6.2 - ABSTRACTA + TEMPLATE METHOD ===")
+
+    val generadorReporte = listOf(
+        MarkdownReport(logger),
+        CsvReport(logger)
+    )
+
+    for (i in generadorReporte) {
+        println("\n>>> Probando ${i::class.simpleName} <<<")
+        val informeGenerado = i.generate(nombre, listaLineas)
+        println(informeGenerado)
+        println("=".repeat(50))
+    }
 }

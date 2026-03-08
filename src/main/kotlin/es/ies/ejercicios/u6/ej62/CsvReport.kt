@@ -1,7 +1,9 @@
 package es.ies.ejercicios.u6.ej62
 
-class CsvReport : ReportTemplate() {
-    override fun header(title: String): String = TODO("Cabecera CSV")
-
-    override fun formatLine(line: String): String = TODO("Formateo CSV por línea")
+class CsvReport(private val logger: Logger) : ReportTemplate(logger) {
+    override fun formatLine(linea: String): String {
+        logger.log("CSV: '$linea'")
+        return linea
+    }
+    override fun header(title: String): String = "title,$title\nlinea\n"
 }
